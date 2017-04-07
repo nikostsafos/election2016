@@ -1,6 +1,6 @@
 # Red vs. Blue: Visualizing the Fault Lines
 
-Web version: https://nikostsafos.github.io/afterManufacturing/
+Web version: https://nikostsafos.github.io/election2016/
 
 The 2016 presidential election underscored the enduring fault lines between red and blue America. Typically, the result is explained in these terms: Donald Trump did better in places that were rural, white, less educated, and less well off. That narrative is, more or less, borne by the data. But these broad strokes only tell part of the story. In fact, if we change the question&mdash;can I look at a place and predict whether it will be red or blue&mdash;the answer is less clear and there is a lot more noise. Sometimes, a place that looks red votes blue; and sometimes, a place that should be overwhelmingly blue voted blue by only a small maring. So where exactly are these fault lines, and how well do they capture the split between red and blue America?.
 
