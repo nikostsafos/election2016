@@ -22,6 +22,8 @@ The 2016 presidential election underscored the enduring fault lines between red 
 
 - electionResultsCumulativeCountryMargin: Results by county, aggregated by cumulative margin at the country level (in effect: sort by a given variable, calculate a running total margin).
 
+- electionResultsCumulativeCountryMargin + variable: Subset of larger file for easier rendering. 
+
 The file also contains three R scripts:
 
 - codeDataElectionResults: Process the raw election results in JSON and render a clean CSV file with results by variable. 

@@ -3,13 +3,12 @@
 var contentWidth = document.getElementById('content').clientWidth;
 
 var plotWidth;
-  if (contentWidth >= 600) {plotWidth = contentWidth/2.05;} 
+  if (contentWidth >= 600) {plotWidth = contentWidth/2;} 
   else { plotWidth = contentWidth; }
 
 var plotHeight;
-  if (contentWidth >= 600) {plotHeight = contentWidth/2.05;} 
+  if (contentWidth >= 600) {plotHeight = contentWidth/3;} 
   else { plotHeight = contentWidth; }
-
 
 var elemState = document.getElementById('stateSelect'); // Create variable element that stores value from menu 
 var elemVariable = document.getElementById('variableSelect'); // Create variable element that stores value from menu 
@@ -33,7 +32,7 @@ function onChangeVariable(){
 function graphStateVariable(id, state, variable, w, h) {
 
   // Set margin parameters 
-  var margin = {top: 40, right: 50, bottom: 20, left: 50},
+  var margin = {top: 20, right: 50, bottom: 20, left: 50},
                 width = w - margin.left - margin.right,
                 height = h - margin.top - margin.bottom;
 

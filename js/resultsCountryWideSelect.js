@@ -10,24 +10,17 @@ var plotHeight;
   if (contentWidth >= 600) {plotHeight = contentWidth/3;} 
   else { plotHeight = contentWidth; }
 
-// Static graphs 
-graphVariable('#graphUrbanPCT', 'UrbanPCT', plotWidth, plotHeight);
-graphVariable('#graphMedianAge', 'MedianAge', plotWidth, plotHeight);
-graphVariable('#graphWhiteAlonePCT', 'WhiteAlonePCT', plotWidth, plotHeight);
-graphVariable('#graphMedianHouseholdIncome', 'MedianHouseholdIncome', plotWidth, plotHeight);
-graphVariable('#graphBAorHigherPCT', 'BAorHigherPCT', plotWidth, plotHeight);
+// SELECT VARIABLE TO GRAPH
+var elem = document.getElementById('variableCountrySelect'); // Create variable element that stores value from menu 
 
-// // SELECT VARIABLE TO GRAPH
-// var elem = document.getElementById('variableCountrySelect'); // Create variable element that stores value from menu 
+if(elem){ elem.addEventListener("load", graphVariable('#graphResultsCountry', elem.value, plotWidth, plotHeight), false)}; // on load, graph default value 
+if(elem){ elem.addEventListener("change", onChangeVariable, false)}; // on change, run 'onSelectChange function' that graphs new country 
 
-// if(elem){ elem.addEventListener("load", graphVariable('#graphResultsCountry', elem.value, plotWidth, plotHeight), false)}; // on load, graph default value 
-// if(elem){ elem.addEventListener("change", onChangeVariable, false)}; // on change, run 'onSelectChange function' that graphs new country 
-
-// function onChangeVariable(){
-//   d3.select('#graphResultsCountry').selectAll('*').remove();
-//   var value = this.value;
-//   graphVariable('#graphResultsCountry', value, plotWidth, plotHeight);
-// }
+function onChangeVariable(){
+  d3.select('#graphResultsCountry').selectAll('*').remove();
+  var value = this.value;
+  graphVariable('#graphResultsCountry', value, plotWidth, plotHeight);
+}
 
 function graphVariable(id, variable, w, h) {
 
@@ -63,8 +56,7 @@ function graphVariable(id, variable, w, h) {
                      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
   // Read in data 
-  var fileName = 'data/electionResultsCumulativeCountryMargin' + variable + '.csv';
-  d3.csv(fileName, type, function(error, data) {
+  d3.csv("data/electionResultsCumulativeCountryMargin.csv", type, function(error, data) {
       if (error) throw error;
 
   data = data.filter(function (d) { return d.VariableName == variable } );
@@ -123,6 +115,14 @@ function graphVariable(id, variable, w, h) {
         .style('text-anchor', 'middle')
         .text('Trump vs. Clinton margin');
 
+    // text label for the x axis
+    // svgResults.append("text")
+    //     .attr('x', width/2)
+    //     .attr("y", height - (height * 1.03))
+    //     .style('text-anchor', 'middle')
+    //     .text(variable);
+  // console.log(data);
+
   // Scale the functions defined above with range from variables 
     x.domain(d3.extent(data, function(d) { return d.VariableValue; }));
     y.domain(d3.extent(data, function(d) { return d.CumTrumpVClinton; }));
@@ -176,6 +176,14 @@ function graphVariable(id, variable, w, h) {
         .attr('dy', '.71em')
         .style('text-anchor', 'middle')
         .text('Trump vs. Clinton cumulative margin');
+
+    // text label for the x axis
+    // svgResultsCum.append("text")
+    //     .attr('x', width/2)
+    //     .attr("y", height - (height * 1.03))
+    //     .style('text-anchor', 'middle')
+    //     .text(variable);
+  // console.log(data);
   });
 
   function type(d) {

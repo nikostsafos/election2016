@@ -34,59 +34,91 @@
 
   	<hr><h2>Introduction</h2><hr>
 
-   	<p>The 2016 presidential election underscored the enduring fault lines between red and blue America. Typically, the result is explained in these terms: Donald Trump did better in places that were rural, white, less educated, and less well off. That narrative is, more or less, borne by the data. But these broad strokes only tell part of the story. In fact, if we change the question&mdash;can I look at a place and predict whether it will be red or blue&mdash;the answer is less clear and there is a lot more noise. Sometimes, a place that looks red votes blue; and sometimes, a place that should be overwhelmingly blue voted blue by only a small margin. So where exactly are these fault lines, and how well do they capture the split between red and blue America?.</p>
+   	<p>The 2016 presidential election underscored the enduring fault lines between red and blue America. Typically, the result is explained in these terms: Donald Trump did better in places that were rural, white, less educated, and less well off. That narrative is, more or less, supported by the data. But these broad strokes only tell part of the story. In fact, if we change the question&mdash;can I look at a place and predict whether it will be red or blue&mdash;the answer is less clear. There is a lot of noise&mdash;heavily rural areas that voted for Hillary Clinton or highly educated areas that voted for Trump. Sometimes, a county gave a candidate a small margin, even though we might have expected a large one. So where exactly are these fault lines, and how well do they capture the split between red and blue America?</p>
 
-   	<hr><h2>Results by county</h2><hr>
+   	<hr><h2>The Major Fault Lines</h2><hr>
 
-   	<p>To answer this question, I looked at the county-level results against a number of variables. For each county, I focused on the victory margin between Trump and Hillary Clinton&mdash;in effect, looking at how much the county went for one candidate over another, not just who won. The graphs below show the results in two ways. The left chart is simple: each dot is a single county, color-coded by whether it voted for Trump or Clinton. The vertical axis shows the Trump vs. Clinton margin (positive means the county voted for Trump; negative for Clinton). On the horizontal axis, the county is mapped according to whatever variable the user has selected&mdash;the level of urbanization in the default view.</p>
+   	<p>To answer this question, I examined county-level results against a number of variables&mdash;urbanization, age, race, income and education. For each of those variables, I created two graphs: the first shows the relationship between that variable and Trump's victory margin in that county; the second shows the cumulative nation-wide margin according to this variable.</p> 
 
-   	<p>In this view, we're interested in how the dots are arranged&mdash;is there a clear relationship, for example, between the level of urbanization and the Trump v. Clinton margin? The answer is: sort of. If we start from the far left of the chart, we are looking at counties that are 0% urban&mdash;meaning totally rural. Clearly, there are more red dots than blue dots&mdash;counties won by Trump. Similarly, on the other extreme&mdash;counties that are 100% urban&mdash;there are more blue dots than red dots, which means Clinton won more of those counties. Yet there is much variation. Clinton won a lot of totally rural counties; and the Trump-Clinton margin in rural areas ranged from razor thin to almost 100%. It's hard to look at urbanization alone and say whether a place would be red or blue.</p>
+   	<p>Consider, for instance, urbanization. The left chart is simple: each dot is a single county, color-coded by whether it voted for Trump or Clinton. The vertical axis shows the Trump vs. Clinton margin (positive means the county voted for Trump; negative for Clinton). The horizontal axis shows each county's level of urbanization. In this view, we're interested in how the dots are arranged&mdash;is there a clear relationship, for example, between the level of urbanization and the Trump v. Clinton margin?</p>
 
-   	<p>This picture, however, only tells part of the story. Each dot carries similar weight, even though counties vary significantly in size. Loving, Texas reported 65 votes cast; Los Angeles, California reported 3.4 million. Both are shown as a single dot. In fact, Trump won 84% of all counties, even though he lost the popular vote by some 2.9 million votes. There is, in other words, an inherent bias in visualizing counties equally because there are too many small counties that tend to vote Republican.</p>
+   	<p>The answer is: sort of. If we start from the far left of the chart, we are looking at counties that are 0% urban&mdash;meaning totally rural. Clearly, there are more red dots than blue dots&mdash;counties won by Trump. Similarly, on the other extreme&mdash;counties that are 100% urban&mdash;there are more blue dots than red dots, which means Clinton won more of those counties. Yet there is much variation. Clinton won a lot of totally rural counties; and the Trump-Clinton margin in rural areas ranged from razor thin to almost 100%. It's hard to look at urbanization alone and say whether a place would be red or blue.</p>
 
-   	<p>This brings us to the second visual. This is less intuitive but very revealing once understood. In this instance, all counties are sorted according the chosen variable: the far left shows counties that are 0% urban and the far right shows counties that are 100% urban. The vertical axis, however, is now a running total: the Trump-Clinton margin as we move from left to right. In simple terms, this means that if the trajectory is ascending, Trump is building a nation-wide lead in those counties; if the trajectory is descending, Clinton is building a nation-wide lead. If the trajectory is flat&mdash;meaning the cumulative margin is neither increasing nor decreasing&mdash;then, those counties are either split evenly (small-margin victories) or they are small counties, so a victory by either side is not enough to move the national total in either direction.</p>
+   	<p>This picture, however, only tells part of the story. Each dot is the same, even though counties vary in size: Loving, Texas reported 65 votes cast, while Los Angeles, California reported 3.4 million. Both are shown as a single dot. In fact, Trump won 84% of all counties in the United States, even though he lost the popular vote by some 2.9 million votes. There is, in other words, an inherent bias in visualizing counties equally because there are too many small counties that tend to vote Republican.</p>
 
-	<div><h3>2016 Presidential Election: County results</h3>
-	<div class = 'menu' align = 'center'>
-		<select id="variableCountrySelect" name="variableCountrySelect">
-			<option value="UrbanPCT">Urbanization: percent urban</option>
-			<option value="MedianAge">Age: median age in years</option>
-			<option value="WhiteAlonePCT">Race: percent While alone</option>
-			<option value="BlackAlonePCT">Race: percent Black or African American alone</option> 
-			<option value="HispanicPCT">Origin: percent Hispanic</option>
-			<option value="MedianHouseholdIncome">Income: median household income in thousand dollars</option>
-			<option value="PovertyPCT">Poverty: percent in poverty</option>
-			<option value="EmplPopRatio16Over">Employment: employment/population ratio, 16+ years</option>
-			<option value="HighSchoolorHigherPCT">Education: percent high-school graduate</option>
-			<option value="BAorHigherPCT">Education: Percent bachelor's or higher</option>
-        </select>
-    </div>
-	<div class = 'graph' id = 'graphResultsCountry'></div>
-	<p class = 'graphFootnote'>Source: Election results from the Associated Press (via <a href = 'http://www.nytimes.com/elections/results/president' target = '_blank'>New York Times</a>). All other variables from U.S. Census Bureau. Urbanization from <a href = 'https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml' target = '_blank'>2010 Census (Table P2, URBAN and RURAL)</a>. Median age, race, origin, employment/population ratio and educational attainment from <a href = 'https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml' target = '_blank'>2011-2015 American Community Survey 5-Year Estimates</a> (median age: HC01_EST_VC35 in Table S0101, AGE AND SEX; White alone: HD01_VD02/HD01_VD01 in B02001 RACE; Black of African American alone: HD01_VD03/HD01_VD01 in B02001 RACE; origin: HD01_VD03/HD01_VD01 in B03003 HISPANIC OR LATINO ORIGIN; employment/population ratio: HC03_EST_VC01 in Table S2301, EMPLOYMENT STATUS; educational attainment: HC02_EST_VC17 and HC02_EST_VC18 in Table S1501, EDUCATIONAL ATTAINMENT). Median income and poverty from <a href = 'https://www.census.gov/did/www/saipe/data/statecounty/data/2015.html' target = '_blank'>State and County Estimates for 2015</a>. Results for Alaska reported state-wide; input variables are also state-wide. For more information on the data sources and approach, please visit my <a href='https://github.com/nikostsafos/election2016' target = '_blank'>github</a> repository.</p>
-	</div>
+   	<p>This brings us to the second visual. This is less intuitive but very revealing once understood. In this instance, all counties are sorted according their level of urbanization: the far left shows counties that are 0% urban and the far right shows counties that are 100% urban. The vertical axis, however, is now a running total: the Trump-Clinton margin as we move from left to right. In simple terms, this means that if the trajectory is ascending, Trump is building a nation-wide lead in those counties; if the trajectory is descending, Clinton is building a nation-wide lead. If the trajectory is flat&mdash;meaning the cumulative margin is neither increasing nor decreasing&mdash;then, those counties are either split evenly (small-margin victories) or they are small counties, so a victory by either side is not enough to move the national total in either direction.</p>
 
-	<p>Let's examine the chart, starting from the far left&mdash;counties that are 100% rural. Trump is building a nation-wide margin in these areas, even though Trump and Clinton both won counties that were 100% rural. However, Trump won more and/or bigger counties. By the time we leave the fully rural counties, Trump has a margin of around 0.7%. As we move to right, counties become more urban, but Trump is still building a nation-wide lead. In fact, until counties are about 85% urban, Trump has a lead that exceeds 10%. To be clear, this margin is calculated over the entire vote&mdash;which means that if every other county (to the right) voted 50:50 for Trump-Clinton, then the final tally would be a 10% victory margin for Trump. At that point, however, we have an inflection point: when counties are 90% urban or more, Clinton starts to reduce Trump's margin and eventually reverse it. Again, there are still red dots in this space&mdash;highly urban areas won by Trump. But the overall trajectory is downward, meaning that winning urban counties was crucial to Clinton's final tally&mdash;even though lots of highly or totally urban areas voted for Trump.</p>
+   	<div><h3>2016 Presidential Election: Results by county against level of urbanization</h3>
+   	<div class = 'graph' id = 'graphUrbanPCT'></div>
+   	<p class = 'graphFootnote'>Source: Election results from the Associated Press (via <a href = 'http://www.nytimes.com/elections/results/president' target = '_blank'>New York Times</a>). Urbanization from U.S. Census Bureau, <a href = 'https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml' target = '_blank'>2010 Census (Table P2, URBAN and RURAL)</a>. Results for Alaska reported state-wide; input variables are also state-wide.</p>
 
-   	<p>Each variable has its own story&mdash;here are some comments on the other variables, focused mostly on the cumulative totals since the scatter plots on the left generally show no clear patterns.</p>
+   	<p>Let's examine the chart, starting from the far left&mdash;counties that are 100% rural. Trump is building a nation-wide margin in these areas, even though Trump and Clinton both won counties that were 100% rural. However, Trump won more and/or bigger counties. By the time we leave the fully rural counties, Trump has a margin of around 0.7%. As we move to right, counties become more urban, but Trump is still building a lead. In fact, until counties are about 85% urban, Trump has a lead that exceeds 10%. To be clear, this margin is calculated over the entire vote&mdash;which means that if every other county (to the right of whatever dot we're looking at) voted 50:50 for Trump-Clinton, then the final tally would be a 10% victory margin for Trump. At that point, however, we have an inflection point: when counties are 90% urban or more, Clinton starts to reduce Trump's margin and eventually reverse it. Again, there are still red dots in this space&mdash;highly urban areas won by Trump. But the overall trajectory is downward, meaning that winning urban counties was crucial to Clinton's final tally&mdash;even though lots of highly or totally urban areas voted for Trump.</p>
 
-   	<ul><li>Age: The Trump vs. Clinton margin seems steady at counties with low median age levels; but Clinton starts to build a lead between median ages of 32 and 38 years; from then on, Trump is showing gains.</li>
-   		<li>Race/Origin: Clinton builds a commanding lead until counties get to about 80% white; from then on, Trump is generally winning. The results are somewhat similar when looking at counties with more blacks or African Americans; Trump builds a lead until counties have about 5% blacks or African Americans; then there are some ups and downs, but by the time the number hits 20% or more, Clinton generally builds a solid lead. The trajectory is similar when it comes to the percent of population with Hispanic or Latino origin.</li>
-   		<li>Income: At lower income levels, the margin is flat, which means neither side is building a lead. When median household income ranges from about $35,000 a year to $50,000 a year, Trump is building a lead; after that point, and especially after $60,000, counties tend to favor Clinton.</li>
-   		<li>Poverty: The trajectory here is less clear. We generally observe a zigzag pattern. Trump builds a lead until a big county comes in for Clinton, which pushes the curve down.</li>
-   		<li>Employment/Population: At first, the margin is flat, but Trump builds a lead in counties where employment participation ranges from 35 to 55% (share of people over 16 who are employed). Then, Clinton starts to build a margin, although there is a mini Trump rally on the far right of the chart.</li>
-   		<li>Education: Education shows no clear pattern when it comes to the percent of people who have finished high-school. It is clearer, however, when it comes to higher education: if more than 30% of the population has a bachelor's or higher, then those counties tended to help Clinton build a lead.</li> 
-   	</ul>
+   	<p>Let's examine the other variables (if you want to navigate the data yourself, go straight to the appendix). Start with age (median age in years). Here, we observe some possible relationship: there is a notional diagonal that shows older areas have a higher victory margin for Trump. Even in this case, however, we still have a lot of noise. The graph on the right is more compelling: the Trump vs. Clinton cumulative margin seems steady at counties with low median age levels; but Clinton starts to build a lead between median ages of 32 and 38 years; from then on, Trump is showing gains, which then peter out by the time counties get older.</p>
 
-    <hr><h2>Results by county and by state</h2><hr>
+	<div><h3>2016 Presidential Election: Results by county against median age in years</h3>
+   	<div class = 'graph' id = 'graphMedianAge'></div>
+   	<p class = 'graphFootnote'>Source: Election results from the Associated Press (via <a href = 'http://www.nytimes.com/elections/results/president' target = '_blank'>New York Times</a>). Median age from U.S. Census Bureau, <a href = 'https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml' target = '_blank'>2011-2015 American Community Survey 5-Year Estimates</a>, HC01_EST_VC35 in Table S0101, AGE AND SEX. Results for Alaska reported state-wide; input variables are also state-wide.</p>
 
-    <p>On a country-wide level, the scatter plots were inconclusive&mdash;too much noise. At a state level, however, the scatter plots are very interesting. For instance, if you look at race in Alabama, Arkansas, Georgia, Mississippi or South Carolina&mdash;the correlation between percent white and Trump's victory margin is clear. In other places&mdash;like California&mdash;there is a step change: Trump only won counties that were at least 70% white. Urbanization shows a much clearer correlation in Illinois, Maryland, Michigan, New Jersey, Ohio, Pennsylvania. But the relationship is less clear in Mississippi, New Mexico, or North Carolina.</p>
+   	<p>Race shows a clearer pattern. On the scatter plot, Trump does not even win counties until the population is 20% or more white. Even then, the victories are few and far between. Moreover, the areas where he won bigger leads are even more white. The cumulative tally tells an even clearer story: Clinton builds a commanding lead until counties get to about 80% white; from then on, Trump is generally winning. The results are somewhat similar when looking at counties with more blacks or African Americans (see appendix); Trump builds a lead until counties have about 5% blacks or African Americans; then there are some ups and downs, but by the time the number hits 20% or more, Clinton generally builds a solid lead. The trajectory is similar when it comes to the percent of population with Hispanic or Latino origin.
+
+	<div><h3>2016 Presidential Election: Results by county against percent white</h3>
+   	<div class = 'graph' id = 'graphWhiteAlonePCT'></div>
+   	<p class = 'graphFootnote'>Source: Election results from the Associated Press (via <a href = 'http://www.nytimes.com/elections/results/president' target = '_blank'>New York Times</a>). Percent white from U.S. Census Bureau, <a href = 'https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml' target = '_blank'>2011-2015 American Community Survey 5-Year Estimates</a>, HD01_VD02 divided by HD01_VD01 in B02001 RACE; in Table S0101, AGE AND SEX. Results for Alaska reported state-wide; input variables are also state-wide. </p>
+
+	<p>When it comes to income, the scatter plot is inconclusive. But the cumulative total is clearer: at lower income levels, the margin is flat, which means neither side is building a lead. When median household income ranges from about $35,000 a year to $50,000 a year, Trump is building a lead; after that point, and especially after $65,000, counties tend to favor Clinton, although there are occasional movements horizontally (a series of counties that either are split evenly or are too small to change the running total). Other measures show mixed results. Looking at poverty, we observe a zigzag pattern: Trump builds a lead until a big county comes in for Clinton, which pushes the curve down (see appendix). When it comes to employment as a share of total population, Trump builds a lead in counties where employment participation ranges from 35 to 55% (share of people over 16 who are employed). Then, Clinton starts to build a margin, although there is a mini Trump rally on the far right of the chart (see appendix).</p>
+
+	<div><h3>2016 Presidential Election: Results by county against median household income</h3>
+   	<div class = 'graph' id = 'graphMedianHouseholdIncome'></div>
+   	<p class = 'graphFootnote'>Source: Election results from the Associated Press (via <a href = 'http://www.nytimes.com/elections/results/president' target = '_blank'>New York Times</a>). Median household income from U.S. Census Bureau, <a href = 'https://www.census.gov/did/www/saipe/data/statecounty/data/2015.html' target = '_blank'>State and County Estimates for 2015</a>. Results for Alaska reported state-wide; input variables are also state-wide. </p>
+
+   	<p>Education: Education shows no clear pattern when it comes to the percent of people who have finished high-school (see appendix). It is clearer, however, when it comes to higher education. The scatter plot shows a weak off-diagonal&mdash;meaning that counties with more people who have higher education degrees favored Clinton. The cumulative margin graph makes this even clearer: if more than 30% of the population has a bachelor's or higher, then those counties tended to help Clinton build a lead.</p>
+
+   	<div><h3>2016 Presidential Election: Results by county against percent with bachelor's or higher</h3>
+   	<div class = 'graph' id = 'graphBAorHigherPCT'></div>
+   	<p class = 'graphFootnote'>Source: Election results from the Associated Press (via <a href = 'http://www.nytimes.com/elections/results/president' target = '_blank'>New York Times</a>). Educational attainment income from U.S. Census Bureau, <a href = 'https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml' target = '_blank'>2011-2015 American Community Survey 5-Year Estimates</a>, HC02_EST_VC18 in Table S1501, EDUCATIONAL ATTAINMENT. Results for Alaska reported state-wide; input variables are also state-wide. </p>
+
+   	<p>On a country-wide level, the scatter plots were inconclusive&mdash;too much noise. At a state level, however, the scatter plots are very interesting (see appendix). For instance, if you look at race in Alabama, Arkansas, Georgia, Mississippi or South Carolina&mdash;the correlation between percent white and Trump's victory margin is clear. In other places&mdash;like California&mdash;there is a step change: Trump only won counties that were at least 70% white. Urbanization shows a much clearer correlation in Illinois, Maryland, Michigan, New Jersey, Ohio, Pennsylvania. But the relationship is less clear in Mississippi, New Mexico, or North Carolina.</p>
 
     <p>It is equally interesting to look at individual states. In Michigan and Pennsylvania, urbanization tells a compelling story: a few large urban centers were closing the gap for Clinton but weren't enough to tilt the overall state to her favor. The same is true for Ohio, although Trump's margin in Ohio was higher. By contrast, in Virginia, those last few urban centers led to a win for Clinton. In Illinois, it's a single urban county (Cook) that shifts the balance.</p>
 
     <p>In short, there are very interesting sub-stories to explore at the state level&mdash;stories that are hard to notice at the country-level graphs above.</p>
-    
-        <div class = 'menu' align = 'center'>
-        <select id="stateSelect" name="stateSelect">
+
+    <hr><h2>Conclusion</h2><hr>
+
+    <p>What do these results show us? In my view, there are two main takeaways. First, the conventional narrative is correct but incomplete&mdash;yes, Trump built leads in counties that were rural; white; less educated; had lower employment levels or lower median household incomes. But that story only tells us what drove the electoral result&mdash;they do not, in my mind, capture the variation which is, often, significant and interesting&mdash;areas that voted differently or in different margins than the country-wide trajectory. Second, at the state level, we have lots of examples of cases that either fit nicely into the nation-wide trend or really deviate it from it. We have examples where race is a very clear predictor; and other examples where race does not seem to tell us much about how a county would vote. We have stories were the urban/rural split is pronounced, and others where it is not.</p>
+
+    <p>In short, if we ask a narrow question&mdash;what drove the electoral result&mdash;the standard answer is, more or less, accurate. But if we ask a different question&mdash;where are the fault lines between red and blue&mdash;the answer is far more nuanced and interesting and hard to summarize.</p>
+	
+    <hr><h2>Appendix</h2><hr>
+
+    <ul class="tab-list">
+        <li class="active"><a class="tab-control" href="#tab-1"><h3>Select variable (country-wide results)</h3></a></li>
+        <li><a class="tab-control" href="#tab-2"><h3>Select state and variable</h3></a></li></ul>
+
+   <div class = 'tab-panel active' id = 'tab-1'>
+		<div class = 'menu' align = 'center'>
+			<select id="variableCountrySelect" name="variableCountrySelect">
+				<option value="UrbanPCT">Urbanization: percent urban</option>
+				<option value="MedianAge">Age: median age in years</option>
+				<option value="WhiteAlonePCT">Race: percent While alone</option>
+				<option value="BlackAlonePCT">Race: percent Black or African American alone</option> 
+				<option value="HispanicPCT">Origin: percent Hispanic</option>
+				<option value="MedianHouseholdIncome">Income: median household income in thousand dollars</option>
+				<option value="PovertyPCT">Poverty: percent in poverty</option>
+				<option value="EmplPopRatio16Over">Employment: employment/population ratio, 16+ years</option>
+				<option value="HighSchoolorHigherPCT">Education: percent high-school graduate</option>
+				<option value="BAorHigherPCT">Education: Percent bachelor's or higher</option>
+	        </select>
+	    </div>
+		<div class = 'graph' id = 'graphResultsCountry'></div>
+	</div>
+
+  <div class = 'tab-panel' id = 'tab-2'>
+  
+    <div id = 'wrapper'>
+    <div class = 'menu' align = 'center'>
+    <select id="stateSelect" name="stateSelect">
 			<option value="Alabama">Alabama</option>
 			<option value="Alaska">Alaska</option>
 			<option value="Arizona">Arizona</option>
@@ -138,38 +170,37 @@
 			<option value="West Virginia">West Virginia</option>
 			<option value="Wisconsin">Wisconsin</option>
 			<option value="Wyoming">Wyoming</option>
-            </select>
-            </div>
+    </select>
+    </div>
 
-        <div class = 'menu' align = 'center'>
-        <select id="variableSelect" name="variableSelect">
-			<option value="UrbanPCT">Urbanization: percent urban</option>
-			<option value="MedianAge">Age: median age in years</option>
-			<option value="WhiteAlonePCT">Race: percent While alone</option>
-			<option value="BlackAlonePCT">Race: percent Black or African American alone</option> 
-			<option value="HispanicPCT">Origin: percent Hispanic</option>
-			<option value="MedianHouseholdIncome">Income: median household income in thousand dollars</option>
-			<option value="PovertyPCT">Poverty: percent in poverty</option>
-			<option value="EmplPopRatio16Over">Employment: employment/population ratio, 16+ years</option>
-			<option value="HighSchoolorHigherPCT">Education: percent high-school graduate</option>
-			<option value="BAorHigherPCT">Education: Percent bachelor's or higher</option>
-            </select>
-            </div>
+    <div class = 'menu' align = 'center'>
+    <select id="variableSelect" name="variableSelect">
+  		<option value="UrbanPCT">Urbanization: percent urban</option>
+  		<option value="MedianAge">Age: median age in years</option>
+  		<option value="WhiteAlonePCT">Race: percent While alone</option>
+  		<option value="BlackAlonePCT">Race: percent Black or African American alone</option> 
+  		<option value="HispanicPCT">Origin: percent Hispanic</option>
+  		<option value="MedianHouseholdIncome">Income: median household income in thousand dollars</option>
+  		<option value="PovertyPCT">Poverty: percent in poverty</option>
+  		<option value="EmplPopRatio16Over">Employment: employment/population ratio, 16+ years</option>
+  		<option value="HighSchoolorHigherPCT">Education: percent high-school graduate</option>
+  		<option value="BAorHigherPCT">Education: Percent bachelor's or higher</option>
+    </select>
+    </div>
+    </div>
 
         <div class = 'graph' id = 'graphResults'></div>
+        </div>
         <p class = 'graphFootnote'>Source: Election results from the Associated Press (via <a href = 'http://www.nytimes.com/elections/results/president' target = '_blank'>New York Times</a>). All other variables from U.S. Census Bureau. Urbanization from <a href = 'https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml' target = '_blank'>2010 Census (Table P2, URBAN and RURAL)</a>. Median age, race, origin, employment/population ratio and educational attainment from <a href = 'https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml' target = '_blank'>2011-2015 American Community Survey 5-Year Estimates</a> (median age: HC01_EST_VC35 in Table S0101, AGE AND SEX; White alone: HD01_VD02/HD01_VD01 in B02001 RACE; Black of African American alone: HD01_VD03/HD01_VD01 in B02001 RACE; origin: HD01_VD03/HD01_VD01 in B03003 HISPANIC OR LATINO ORIGIN; employment/population ratio: HC03_EST_VC01 in Table S2301, EMPLOYMENT STATUS; educational attainment: HC02_EST_VC17 and HC02_EST_VC18 in Table S1501, EDUCATIONAL ATTAINMENT). Median income and poverty from <a href = 'https://www.census.gov/did/www/saipe/data/statecounty/data/2015.html' target = '_blank'>State and County Estimates for 2015</a>. Results for Alaska reported state-wide; input variables are also state-wide. For more information on the data sources and approach, please visit my <a href='https://github.com/nikostsafos/election2016' target = '_blank'>github</a> repository.</p>
-        
-        <hr><h2>Conclusion</h2><hr>
-
-        <p>What do these results show us? In my view, there are two main takeaways. First, the conventional narrative is correct but incomplete&mdash;yes, Trump built leads in counties that were rural; white; less educated; had lower employment levels or lower median household incomes. But that story only tells us what drove the electoral result&mdash;they do not, in my mind, capture the variation which is, often, significant and interesting&mdash;areas that voted differently or in different margins than the country-wide trajectory. Second, at the state level, we have lots of examples of cases that either fit nicely into the nation-wide trend or really deviate it from it. We have examples where race is a very clear predictor; and other examples where race does not seem to tell us much about how a county would vote. We have stories were the urban/rural split is pronounced, and others where it is not.</p>
-
-        <p>In short, if we ask a narrow question&mdash;what drove the electoral result&mdash;the standard answer is, more or less, accurate. But if we ask a different question&mdash;where are the fault lines between red and blue&mdash;the answer is far more nuanced and interesting and hard to summarize.</p>
         
     	<p class = 'graphFootnote'><a href="https://twitter.com/ntsafos" class="twitter-follow-button" data-show-count="false">Follow @ntsafos</a></p>
     
 	</div>
 	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 	<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>    
+	<script src = 'https://code.jquery.com/jquery-3.2.0.min.js'></script>
+    <script src='js/tabs.js'> </script>
+	<script src='js/resultsCountryWideSelect.js'></script>
 	<script src='js/resultsCountryWide.js'></script>
 	<script src='js/resultsSelectState.js'></script>
   </body>

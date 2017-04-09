@@ -86,6 +86,22 @@ df = subset(df, select = c('StateName',
 
 write.csv(df, '../../electionResultsCumulativeCountryMargin.csv', row.names = F)
 
+datf = df[df$VariableName == 'UrbanPCT',]
+write.csv(datf, '../../electionResultsCumulativeCountryMarginUrbanPCT.csv', row.names = F)
+
+datf = df[df$VariableName == 'MedianAge',]
+write.csv(datf, '../../electionResultsCumulativeCountryMarginMedianAge.csv', row.names = F)
+
+datf = df[df$VariableName == 'WhiteAlonePCT',]
+write.csv(datf, '../../electionResultsCumulativeCountryMarginWhiteAlonePCT.csv', row.names = F)
+
+datf = df[df$VariableName == 'MedianHouseholdIncome',]
+write.csv(datf, '../../electionResultsCumulativeCountryMarginMedianHouseholdIncome.csv', row.names = F)
+
+datf = df[df$VariableName == 'BAorHigherPCT',]
+write.csv(datf, '../../electionResultsCumulativeCountryMarginBAorHigherPCT.csv', row.names = F)
+
+
 ## Manual way for troubleshooting
 # df = dat
 # df = cbind(df[order(df$UrbanPCT), ],

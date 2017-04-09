@@ -102,6 +102,44 @@ text {
   opacity: .45;
 }
 
+/********** PANELS **********/
+.tab-panel { display: none;}
+
+.tab-panel.active {display: block;}
+
+.tab-panel p { margin: 20px;}
+
+.tab-list {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.tab-list li{
+  display: inline-table;
+  text-align: center;
+  list-style: none;
+  border-bottom: 3px;
+  color: #000;
+}
+
+.tab-list a {
+ color: #000;
+ text-decoration: none; 
+ padding: 0px 15px 0px;
+ display: block;
+ list-style: none;
+}
+
+.menu{
+  display: inline;
+}
+
+#wrapper{
+  display: flex;
+  justify-content: center;
+}
+
 /********** Mobile compatibility **********/
 @media only screen and (max-width: 960px) {
 
