@@ -2,7 +2,7 @@
 
 Web version: https://nikostsafos.github.io/election2016/
 
-The 2016 presidential election underscored the enduring fault lines between red and blue America. Typically, the result is explained in these terms: Donald Trump did better in places that were rural, white, less educated, and less well off. That narrative is, more or less, borne by the data. But these broad strokes only tell part of the story. In fact, if we change the question&mdash;can I look at a place and predict whether it will be red or blue&mdash;the answer is less clear and there is a lot more noise. Sometimes, a place that looks red votes blue; and sometimes, a place that should be overwhelmingly blue voted blue by only a small maring. So where exactly are these fault lines, and how well do they capture the split between red and blue America?.
+The 2016 presidential election underscored the enduring fault lines between red and blue America. Typically, the electoral result is explained thus: Donald Trump did better in places that were rural, white, less educated, and less well off. That narrative is generally supported by the data. But these broad strokes only tell part of the story. If we ask a different question&mdash;can I look at a place and predict whether it will be red or blue&mdash;the answer is less clear. There is a lot of noise&mdash;rural areas that voted for Hillary Clinton, highly educated or very wealthy areas that voted for Trump, and so on. More importantly, the fault line changes&mdash;sometimes, it's race, sometimes its education, sometimes it's something else. So where exactly are these fault lines, and how well do they capture the split between red and blue America?
 
 ### In this repository
 
@@ -12,7 +12,7 @@ The 2016 presidential election underscored the enduring fault lines between red 
 
 **js**: D3.js script for graphics. 
 
-**data**: Clean CSV data files for web rendering. There are four separate CSV files: 
+**data**: Clean CSV data files for web rendering. There are several CSV files: 
 
 - electionResults: Results by county. 
 
@@ -26,7 +26,7 @@ The 2016 presidential election underscored the enduring fault lines between red 
 
 The file also contains three R scripts:
 
-- codeDataElectionResults: Process the raw election results in JSON and render a clean CSV file with results by variable. 
+- codeDataElectionResults: Process the raw election results in JSON and render a clean CSV file with results by county. 
 
 - codeDataAggregated: Merge the election results with the various input variables. 
 
