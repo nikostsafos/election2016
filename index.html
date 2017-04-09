@@ -97,7 +97,8 @@
         <li><a class="tab-control" href="#tab-2"><h3>Select state and variable</h3></a></li></ul>
 
    <div class = 'tab-panel active' id = 'tab-1'>
-		<div class = 'menu' align = 'center'>
+		<div id = 'wrapper'>
+    <div class = 'menu' align = 'center'>
 			<select id="variableCountrySelect" name="variableCountrySelect">
 				<option value="UrbanPCT">Urbanization: percent urban</option>
 				<option value="MedianAge">Age: median age in years</option>
@@ -109,9 +110,10 @@
 				<option value="EmplPopRatio16Over">Employment: employment/population ratio, 16+ years</option>
 				<option value="HighSchoolorHigherPCT">Education: percent high-school graduate</option>
 				<option value="BAorHigherPCT">Education: Percent bachelor's or higher</option>
-	        </select>
-	    </div>
-		<div class = 'graph' id = 'graphResultsCountry'></div>
+	   </select>
+	 </div>
+   </div>
+	 <div class = 'graph' id = 'graphResultsCountry'></div>
 	</div>
 
   <div class = 'tab-panel' id = 'tab-2'>
