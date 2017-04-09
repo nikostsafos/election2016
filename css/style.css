@@ -131,10 +131,6 @@ text {
  list-style: none;
 }
 
-.menu{
-  display: inline;
-}
-
 #wrapper{
   display: flex;
   justify-content: center;
@@ -177,5 +173,11 @@ text {
 }
 
 text { font-size: 70%; }
+
+#wrapper{
+  display: inherit;
+  justify-content: center;
+}
+
 
 }
